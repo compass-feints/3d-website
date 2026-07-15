@@ -14,7 +14,7 @@ export function ShaderBackground({ children, className = "min-h-screen" }: Shade
   const reducedMotion = usePrefersReducedMotion()
 
   return (
-    <div className={`${className} w-full relative overflow-hidden bg-black`}>
+    <div className={`${className} w-full relative overflow-hidden bg-[#dceafa]`}>
       {/* SVG Filters */}
       <svg className="absolute inset-0 w-0 h-0" aria-hidden="true">
         <defs>
@@ -48,13 +48,17 @@ export function ShaderBackground({ children, className = "min-h-screen" }: Shade
         <>
           <MeshGradient
             className="absolute inset-0 w-full h-full"
-            colors={["#000000", "#8b5cf6", "#ffffff", "#1e1b4b", "#4c1d95"]}
-            speed={reducedMotion ? 0 : 0.3}
+            colors={["#ffffff", "#a8cdf0", "#7db8ec", "#eaf3fb", "#c5def6"]}
+            distortion={0.9}
+            swirl={0.4}
+            speed={reducedMotion ? 0 : 0.25}
           />
           <MeshGradient
-            className="absolute inset-0 w-full h-full opacity-60 mix-blend-overlay"
-            colors={["#000000", "#ffffff", "#8b5cf6", "#000000"]}
-            speed={reducedMotion ? 0 : 0.2}
+            className="absolute inset-0 w-full h-full opacity-50"
+            colors={["#ffffff", "#bcd9f5", "#e6f1fb", "#ffffff"]}
+            distortion={0.6}
+            swirl={0.2}
+            speed={reducedMotion ? 0 : 0.15}
           />
         </>
       )}

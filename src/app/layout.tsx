@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "[BRAND NAME] — Something new is coming",
+  title: "[BRAND NAME] — Comment intelligence for YouTube",
   description:
-    "One product. Infinite possibilities. Join the waitlist and be first through the door.",
+    "Paste a YouTube link. Get decision-ready insights from every comment — sentiment, themes, and the exact quotes that prove your point.",
 };
 
 export default function RootLayout({

@@ -6,12 +6,14 @@ import React, { useRef, useState, useCallback } from 'react';
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string;
+  surfaceClassName?: string;
   spotlightColor?: string;
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = '',
+  surfaceClassName = 'border-neutral-800 bg-neutral-900',
   spotlightColor = 'rgba(255, 255, 255, 0.25)'
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -30,7 +32,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(0.6)}
       onMouseLeave={() => setOpacity(0)}
-      className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden ${className}`}
+      className={`relative rounded-3xl border overflow-hidden ${surfaceClassName} ${className}`}
     >
       <div
         aria-hidden="true"

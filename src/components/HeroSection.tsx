@@ -27,12 +27,12 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({
-  title = "Be first through",
-  highlightText = "the door.",
+  title = "Know what they think.",
+  highlightText = "Before anyone else.",
   description = "Join the waitlist and get early access before the public launch. One email when it matters — nothing else.",
   buttonText = "Sign up for the waitlist",
   onButtonClick,
-  colors = ["#72b9bb", "#b5d9d9", "#ffd1bd", "#ffebe0", "#8cc5b8", "#dbf4a4"],
+  colors = ["#ffffff", "#a8cdf0", "#2b7de0", "#dceafa", "#7db8ec"],
   distortion = 0.8,
   swirl = 0.6,
   speed = 0.42,
@@ -42,7 +42,7 @@ export function HeroSection({
   descriptionClassName = "",
   buttonClassName = "",
   maxWidth = "max-w-6xl",
-  veilOpacity = "bg-white/20 dark:bg-black/25",
+  veilOpacity = "bg-white/25",
   fontFamily = "var(--font-geist-sans), sans-serif",
   fontWeight = 500,
 }: HeroSectionProps) {
@@ -88,7 +88,7 @@ export function HeroSection({
             {title} <span className="text-primary">{highlightText}</span>
           </h2>
           <p
-            className={`text-lg sm:text-xl text-white/85 text-pretty max-w-2xl mx-auto leading-relaxed mb-10 px-4 ${descriptionClassName}`}
+            className={`text-lg sm:text-xl text-foreground/75 text-pretty max-w-2xl mx-auto leading-relaxed mb-10 px-4 ${descriptionClassName}`}
           >
             {description}
           </p>
@@ -101,7 +101,7 @@ export function HeroSection({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="text-lg sm:text-xl text-white font-medium"
+                className="text-lg sm:text-xl text-foreground font-medium"
               >
                 You&apos;re on the list ✓
               </motion.p>
@@ -121,11 +121,11 @@ export function HeroSection({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   aria-label="Email address"
-                  className="w-full sm:flex-1 px-6 py-4 rounded-full bg-black/40 backdrop-blur border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full sm:flex-1 px-6 py-4 rounded-full bg-white/70 backdrop-blur border border-foreground/15 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary transition-colors"
                 />
                 <button
                   type="submit"
-                  className={`shrink-0 px-6 py-4 sm:px-8 rounded-full border-4 bg-[rgba(63,63,63,1)] border-card text-sm sm:text-base text-white hover:bg-[rgba(63,63,63,0.9)] transition-colors ${buttonClassName}`}
+                  className={`shrink-0 px-6 py-4 sm:px-8 rounded-full border-4 bg-foreground border-card text-sm sm:text-base text-white hover:bg-foreground/90 transition-colors ${buttonClassName}`}
                 >
                   {buttonText}
                 </button>
