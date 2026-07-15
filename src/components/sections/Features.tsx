@@ -31,7 +31,7 @@ export function Features() {
         <SplitText
           text="From bird's-eye view to next move."
           tag="h2"
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-16 w-full"
+          className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] mb-16 w-full"
           splitType="words"
           delay={80}
           duration={0.9}
@@ -44,8 +44,8 @@ export function Features() {
               spotlightColor="rgba(43, 125, 224, 0.14)"
               className="p-8 min-h-[240px] flex flex-col"
             >
-              <span className="font-mono text-xs tracking-[0.25em] text-primary mb-6">{f.n}</span>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{f.title}</h3>
+              <span className="font-mono text-xs tracking-[0.25em] text-brand mb-6">{f.n}</span>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-3">{f.title}</h3>
               <p className="text-foreground/60 leading-relaxed">{f.body}</p>
             </SpotlightCard>
           ))}

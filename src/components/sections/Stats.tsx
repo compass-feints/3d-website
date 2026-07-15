@@ -16,7 +16,7 @@ export function Stats() {
         {STATS.map((s) => (
           <StarBorder key={s.label} as="div" color="#2b7de0" speed="6s" className="w-full">
             <div className="py-10 px-6">
-              <div className="text-4xl sm:text-5xl font-bold text-foreground">
+              <div className="font-heading text-4xl sm:text-5xl font-bold text-foreground">
                 <CountUp to={s.to} duration={2} separator={s.separator ?? ""} />
                 {s.suffix}
               </div>

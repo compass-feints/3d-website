@@ -10,7 +10,7 @@ export function Footer() {
         <ScrollVelocity
           texts={[`${BRAND} — EVERY COMMENT COUNTS — `]}
           velocity={80}
-          className="text-[9vw] font-bold text-foreground uppercase tracking-tight"
+          className="font-heading text-[9vw] font-bold text-foreground uppercase tracking-tight"
         />
       </div>
       <div className="border-t border-foreground/10 py-8 px-6">

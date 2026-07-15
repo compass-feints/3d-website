@@ -2,7 +2,10 @@
 
 import { MeshGradient } from "@paper-design/shaders-react"
 import { AnimatePresence, motion } from "motion/react"
+import { ArrowRight } from "lucide-react"
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { useIsClient, usePrefersReducedMotion } from "@/lib/hooks"
 
 interface HeroSectionProps {
@@ -43,8 +46,8 @@ export function HeroSection({
   buttonClassName = "",
   maxWidth = "max-w-6xl",
   veilOpacity = "bg-white/25",
-  fontFamily = "var(--font-geist-sans), sans-serif",
-  fontWeight = 500,
+  fontFamily = "var(--font-jakarta), sans-serif",
+  fontWeight = 700,
 }: HeroSectionProps) {
   const mounted = useIsClient()
   const reducedMotion = usePrefersReducedMotion()
@@ -82,10 +85,10 @@ export function HeroSection({
       <div className={`relative z-10 ${maxWidth} mx-auto px-6 w-full`}>
         <div className="text-center">
           <h2
-            className={`font-bold text-foreground text-balance text-4xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] mb-6 lg:text-7xl ${titleClassName}`}
+            className={`font-heading font-bold text-foreground text-balance tracking-[-0.02em] text-4xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] mb-6 lg:text-7xl ${titleClassName}`}
             style={{ fontFamily, fontWeight }}
           >
-            {title} <span className="text-primary">{highlightText}</span>
+            {title} <span className="text-brand">{highlightText}</span>
           </h2>
           <p
             className={`text-lg sm:text-xl text-foreground/75 text-pretty max-w-2xl mx-auto leading-relaxed mb-10 px-4 ${descriptionClassName}`}
@@ -114,21 +117,26 @@ export function HeroSection({
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto"
               >
-                <input
+                <Input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   aria-label="Email address"
-                  className="w-full sm:flex-1 px-6 py-4 rounded-full bg-white/70 backdrop-blur border border-foreground/15 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full sm:flex-1 h-13 px-6 rounded-full bg-white/80 backdrop-blur border-foreground/15 text-base placeholder:text-foreground/40"
                 />
-                <button
+                <Button
                   type="submit"
-                  className={`shrink-0 px-6 py-4 sm:px-8 rounded-full border-4 bg-foreground border-card text-sm sm:text-base text-white hover:bg-foreground/90 transition-colors ${buttonClassName}`}
+                  size="lg"
+                  className={`group shrink-0 h-13 rounded-full px-7 text-base shadow-lg shadow-foreground/20 ${buttonClassName}`}
                 >
                   {buttonText}
-                </button>
+                  <ArrowRight
+                    className="size-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Button>
               </motion.form>
             )}
           </AnimatePresence>

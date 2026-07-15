@@ -39,7 +39,7 @@ export function UseCases() {
         <SplitText
           text="One comment section. Ten reasons to read it."
           tag="h2"
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-16 w-full"
+          className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] mb-16 w-full"
           splitType="words"
           delay={70}
           duration={0.9}
