@@ -46,8 +46,8 @@ export function HeroSection({
   buttonClassName = "",
   maxWidth = "max-w-6xl",
   veilOpacity = "bg-white/25",
-  fontFamily = "var(--font-jakarta), sans-serif",
-  fontWeight = 700,
+  fontFamily = "var(--font-instrument), serif",
+  fontWeight = 400,
 }: HeroSectionProps) {
   const mounted = useIsClient()
   const reducedMotion = usePrefersReducedMotion()
@@ -85,10 +85,10 @@ export function HeroSection({
       <div className={`relative z-10 ${maxWidth} mx-auto px-6 w-full`}>
         <div className="text-center">
           <h2
-            className={`font-heading font-bold text-foreground text-balance tracking-[-0.02em] text-4xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] mb-6 lg:text-7xl ${titleClassName}`}
+            className={`font-display text-foreground text-balance tracking-[-0.01em] text-5xl sm:text-6xl md:text-7xl xl:text-[88px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.05] mb-6 ${titleClassName}`}
             style={{ fontFamily, fontWeight }}
           >
-            {title} <span className="text-brand">{highlightText}</span>
+            {title} <span className="italic text-brand">{highlightText}</span>
           </h2>
           <p
             className={`text-lg sm:text-xl text-foreground/75 text-pretty max-w-2xl mx-auto leading-relaxed mb-10 px-4 ${descriptionClassName}`}
@@ -140,6 +140,12 @@ export function HeroSection({
               </motion.form>
             )}
           </AnimatePresence>
+
+          {!joined && (
+            <p className="text-sm text-foreground/50 mt-5">
+              Your email stays yours — no spam, no sharing, unsubscribe anytime.
+            </p>
+          )}
         </div>
       </div>
     </section>

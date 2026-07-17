@@ -34,14 +34,14 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="font-heading font-bold tracking-[-0.03em] text-foreground text-5xl sm:text-7xl md:text-8xl leading-[1.05] mb-8 text-balance"
+          className="font-display font-normal tracking-[-0.01em] text-foreground text-6xl sm:text-8xl md:text-9xl leading-[1.02] mb-8 text-balance"
         >
           Every comment,
           <br />
           turned into{" "}
           <RotatingWord
             words={["answers.", "themes.", "quotes.", "decisions."]}
-            className="text-brand"
+            className="italic text-brand"
           />
         </motion.h1>
 

@@ -21,7 +21,7 @@ export function Nav() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="font-heading font-bold tracking-tight text-foreground">
+        <a href="#top" className="font-display text-xl tracking-tight text-foreground">
           {BRAND}
         </a>
         <div className="flex items-center gap-2">

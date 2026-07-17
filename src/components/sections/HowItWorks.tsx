@@ -76,7 +76,7 @@ export function HowItWorks() {
         <SplitText
           text="From link to insight in three steps."
           tag="h2"
-          className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] mb-16 w-full"
+          className="font-display text-5xl sm:text-6xl md:text-7xl font-normal text-foreground tracking-[-0.01em] mb-16 w-full"
           splitType="words"
           delay={80}
           duration={0.9}

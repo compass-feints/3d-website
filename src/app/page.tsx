@@ -7,6 +7,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks"
 import { Features } from "@/components/sections/Features"
 import { UseCases } from "@/components/sections/UseCases"
 import { Stats } from "@/components/sections/Stats"
+import { Testimonials } from "@/components/sections/Testimonials"
 import { Footer } from "@/components/sections/Footer"
 import { HeroSection } from "@/components/HeroSection"
 
@@ -20,6 +21,7 @@ export default function Home() {
         <Features />
         <UseCases />
         <Stats />
+        <Testimonials />
         <div id="waitlist">
           <HeroSection veilOpacity="bg-white/25" speed={0.35} />
         </div>
