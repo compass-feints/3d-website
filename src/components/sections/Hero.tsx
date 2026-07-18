@@ -34,7 +34,7 @@ export function Hero() {
           </motion.h1>
 
           <BlurText
-            text="Empty Placeholder"
+            text="Paste a YouTube link. Wedgio reads every comment and hands you the sentiment, the themes, and the exact quotes that prove your point."
             animateBy="words"
             direction="top"
             delay={50}
@@ -79,7 +79,12 @@ export function Hero() {
               transformOrigin: "left center",
             }}
           >
-            <ProductPanel className="ring-1 ring-foreground/10" />
+            <motion.div
+              animate={reduce ? undefined : { y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+            >
+              <ProductPanel className="ring-1 ring-foreground/10" />
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -2,15 +2,31 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { AnimatePresence, motion } from "motion/react"
+import { Eye, EyeOff } from "lucide-react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { ShaderBackground } from "@/components/ShaderBackground"
 import { FloatingSocials } from "@/components/FloatingSocials"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { BRAND } from "@/lib/brand"
 
+const EASE = [0.22, 1, 0.36, 1] as const
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+}
+
+const rise = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+}
+
 export default function LoginPage() {
+  const reduce = useReducedMotion()
   const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
   const [attempted, setAttempted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,13 +42,13 @@ export default function LoginPage() {
 
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          variants={stagger}
+          initial={reduce ? false : "hidden"}
+          animate="show"
           className="w-full max-w-md"
         >
           {/* Header — centered logo, title, sign-up line (Acme-style) */}
-          <div className="mb-8 flex flex-col items-center text-center">
+          <motion.div variants={rise} className="mb-8 flex flex-col items-center text-center">
             <Link href="/">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/wedgio-logo.png" alt={BRAND} className="h-12 w-12 object-contain" />
@@ -49,10 +65,13 @@ export default function LoginPage() {
                 Request access
               </Link>
             </p>
-          </div>
+          </motion.div>
 
           {/* Frosted panel keeps the form legible over the drifting logos */}
-          <div className="rounded-3xl border border-foreground/10 bg-card/75 p-8 shadow-xl shadow-foreground/10 backdrop-blur-xl">
+          <motion.div
+            variants={rise}
+            className="rounded-3xl border border-foreground/10 bg-card/75 p-8 shadow-xl shadow-foreground/10 backdrop-blur-lg"
+          >
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
@@ -67,6 +86,42 @@ export default function LoginPage() {
                   placeholder="m@example.com"
                   className="h-12 rounded-xl border-foreground/15 bg-background/80 px-4 text-base placeholder:text-foreground/40"
                 />
+              </div>
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <label htmlFor="password" className="block text-sm font-medium text-foreground">
+                    Password
+                  </label>
+                  <a
+                    href="#"
+                    className="text-sm text-foreground/55 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="h-12 rounded-xl border-foreground/15 bg-background/80 px-4 pr-12 text-base placeholder:text-foreground/40"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((s) => !s)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-foreground/45 transition-colors hover:text-foreground"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="size-4.5" aria-hidden="true" />
+                    ) : (
+                      <Eye className="size-4.5" aria-hidden="true" />
+                    )}
+                  </button>
+                </div>
               </div>
               <Button type="submit" size="lg" className="h-12 rounded-xl text-base shadow-lg shadow-foreground/20">
                 Login
@@ -113,9 +168,12 @@ export default function LoginPage() {
                 Continue with Google
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <p className="mx-auto mt-6 max-w-sm text-center text-sm leading-relaxed text-foreground/50">
+          <motion.p
+            variants={rise}
+            className="mx-auto mt-6 max-w-sm text-center text-sm leading-relaxed text-foreground/50"
+          >
             {"By clicking continue, you agree to our "}
             <a href="#" className="underline underline-offset-4 hover:text-foreground transition-colors">
               Terms of Service
@@ -125,13 +183,13 @@ export default function LoginPage() {
               Privacy Policy
             </a>
             .
-          </p>
+          </motion.p>
 
-          <p className="mt-6 text-center">
+          <motion.p variants={rise} className="mt-6 text-center">
             <Link href="/" className="text-sm text-foreground/55 hover:text-foreground transition-colors">
               {`← Back to ${BRAND}`}
             </Link>
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </ShaderBackground>
