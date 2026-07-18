@@ -70,7 +70,7 @@ export default function LoginPage() {
           {/* Frosted panel keeps the form legible over the drifting logos */}
           <motion.div
             variants={rise}
-            className="rounded-3xl border border-foreground/10 bg-card/75 p-8 shadow-xl shadow-foreground/10 backdrop-blur-lg"
+            className="rounded-lg border border-foreground/10 bg-card/75 p-8 shadow-xl shadow-foreground/10 backdrop-blur-lg"
           >
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
@@ -84,7 +84,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="m@example.com"
-                  className="h-12 rounded-xl border-foreground/15 bg-background/80 px-4 text-base placeholder:text-foreground/40"
+                  className="h-12 rounded-md border-foreground/15 bg-background/80 px-4 text-base placeholder:text-foreground/40"
                 />
               </div>
               <div>
@@ -107,7 +107,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="h-12 rounded-xl border-foreground/15 bg-background/80 px-4 pr-12 text-base placeholder:text-foreground/40"
+                    className="h-12 rounded-md border-foreground/15 bg-background/80 px-4 pr-12 text-base placeholder:text-foreground/40"
                   />
                   <button
                     type="button"
@@ -123,7 +123,7 @@ export default function LoginPage() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" size="lg" className="h-12 rounded-xl text-base shadow-lg shadow-foreground/20">
+              <Button type="submit" size="lg" className="h-12 rounded-md font-mono text-sm uppercase tracking-[0.12em] shadow-lg shadow-foreground/20">
                 Login
               </Button>
             </form>
@@ -135,7 +135,7 @@ export default function LoginPage() {
                   animate={{ opacity: 1, height: "auto", marginTop: 16 }}
                   exit={{ opacity: 0, height: 0, marginTop: 0 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="overflow-hidden rounded-xl border border-destructive/25 bg-destructive/8 px-4 py-3 text-sm leading-relaxed text-foreground/75"
+                  className="overflow-hidden rounded-md border border-destructive/25 bg-destructive/8 px-4 py-3 text-sm leading-relaxed text-foreground/75"
                 >
                   {`Hmm — we couldn't find an account for that email. ${BRAND} is invite-only while we're in early access. Request access above and we'll set you up.`}
                 </motion.p>
@@ -151,7 +151,7 @@ export default function LoginPage() {
             <div className="grid grid-cols-2 gap-3">
               <Button
                 variant="outline"
-                className="h-11 rounded-xl border-foreground/15 bg-background/80 text-sm font-medium"
+                className="h-11 rounded-md border-foreground/15 bg-background/80 text-sm font-medium"
                 render={<a href="#" />}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -160,7 +160,7 @@ export default function LoginPage() {
               </Button>
               <Button
                 variant="outline"
-                className="h-11 rounded-xl border-foreground/15 bg-background/80 text-sm font-medium"
+                className="h-11 rounded-md border-foreground/15 bg-background/80 text-sm font-medium"
                 render={<a href="#" />}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}

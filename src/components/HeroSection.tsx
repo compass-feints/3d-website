@@ -124,12 +124,12 @@ export function HeroSection({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   aria-label="Email address"
-                  className="w-full sm:flex-1 h-13 px-6 rounded-full bg-white/80 backdrop-blur border-foreground/15 text-base placeholder:text-foreground/40"
+                  className="w-full sm:flex-1 h-13 px-6 rounded-md bg-white/80 backdrop-blur border-foreground/15 text-base placeholder:text-foreground/40"
                 />
                 <Button
                   type="submit"
                   size="lg"
-                  className={`group shrink-0 h-13 rounded-full px-7 text-base shadow-lg shadow-foreground/20 ${buttonClassName}`}
+                  className={`group shrink-0 h-13 rounded-md px-7 font-mono text-sm uppercase tracking-[0.12em] shadow-lg shadow-foreground/20 ${buttonClassName}`}
                 >
                   {buttonText}
                   <ArrowRight

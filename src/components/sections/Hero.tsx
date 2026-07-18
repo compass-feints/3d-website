@@ -18,6 +18,15 @@ export function Hero() {
       <div className="relative z-10 min-h-screen mx-auto max-w-7xl grid lg:grid-cols-2 items-center gap-12 px-6 pt-28 pb-16 lg:py-0">
         {/* Left — animated headline + CTA */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/50"
+          >
+            <span aria-hidden="true">[ 00 ]</span>
+            Comment intelligence / YouTube
+          </motion.p>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,7 +58,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group h-13 rounded-full px-7 text-base shadow-lg shadow-foreground/20"
+              className="group h-13 rounded-md px-7 font-mono text-sm uppercase tracking-[0.12em] shadow-lg shadow-foreground/20"
               render={<a href="#waitlist" />}
             >
               Join the waitlist
@@ -59,6 +68,28 @@ export function Hero() {
               />
             </Button>
           </motion.div>
+
+          {/* Spec strip — the numbers that matter, stated flatly */}
+          <motion.dl
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+            className="mt-12 grid grid-cols-3 gap-6 border-t border-foreground/15 pt-5 text-left"
+          >
+            {[
+              ["50K", "comments per run"],
+              ["100%", "replies included"],
+              ["0", "accounts to connect"],
+            ].map(([value, label]) => (
+              <div key={label} className="border-l border-foreground/15 pl-4">
+                <dt className="sr-only">{label}</dt>
+                <dd className="font-mono text-xl text-foreground">{value}</dd>
+                <dd className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/45">
+                  {label}
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
         </div>
 
         {/* Right — slanted product screenshot */}

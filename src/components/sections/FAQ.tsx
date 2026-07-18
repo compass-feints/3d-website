@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Plus } from "lucide-react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
+import { SectionTag } from "@/components/SectionTag"
 import { BRAND } from "@/lib/brand"
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -51,9 +52,7 @@ export function FAQ() {
   return (
     <section id="faq" className="bg-background px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-3xl">
-        <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.35em] text-foreground/40">
-          FAQ
-        </p>
+        <SectionTag index="02" label="FAQ" />
         <h2 className="mb-14 text-center font-display text-5xl sm:text-6xl font-normal tracking-[-0.01em] text-foreground text-balance">
           Questions, answered.
         </h2>
@@ -71,7 +70,7 @@ export function FAQ() {
               <motion.div
                 key={faq.q}
                 variants={item}
-                className="overflow-hidden rounded-2xl border border-foreground/8 bg-card shadow-sm transition-shadow duration-300 hover:shadow-md"
+                className="overflow-hidden rounded-md border border-foreground/8 bg-card shadow-sm transition-shadow duration-300 hover:shadow-md"
               >
                 <button
                   type="button"
@@ -79,13 +78,21 @@ export function FAQ() {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
-                  <span className="font-heading text-base sm:text-lg font-semibold text-foreground">
-                    {faq.q}
+                  <span className="flex items-baseline gap-4">
+                    <span
+                      className="shrink-0 font-mono text-[11px] tracking-[0.15em] text-foreground/40"
+                      aria-hidden="true"
+                    >
+                      Q.{String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-heading text-base sm:text-lg font-semibold text-foreground">
+                      {faq.q}
+                    </span>
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={reduce ? { duration: 0 } : { duration: 0.3, ease: EASE }}
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-foreground/10 bg-background text-foreground/60"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border border-foreground/10 bg-background text-foreground/60"
                   >
                     <Plus className="size-4" aria-hidden="true" />
                   </motion.span>
@@ -100,7 +107,7 @@ export function FAQ() {
                       transition={{ duration: 0.4, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-6 leading-relaxed text-foreground/60">{faq.a}</p>
+                      <p className="pr-6 pb-6 pl-[4.4rem] leading-relaxed text-foreground/60">{faq.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

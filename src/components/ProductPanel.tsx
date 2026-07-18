@@ -60,12 +60,12 @@ export function ProductPanel({ className = "" }: { className?: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/wedgio-logo.png" alt="" aria-hidden="true" className="h-6 w-6 object-contain" />
           <span className="font-heading text-sm font-semibold text-foreground">Wedgio</span>
-          <span className="rounded-full border border-foreground/10 bg-background px-3 py-1 font-mono text-[11px] text-foreground/50">
+          <span className="rounded-sm border border-foreground/10 bg-background px-3 py-1 font-mono text-[11px] text-foreground/50">
             youtube.com/watch?v=sp2026-launch
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="rounded-full bg-brand/10 px-3 py-1 font-mono text-[11px] text-brand">
+          <span className="rounded-sm bg-brand/10 px-3 py-1 font-mono text-[11px] text-brand">
             12,847 comments analyzed
           </span>
           <span className="text-[11px] text-foreground/40">Updated 2 min ago</span>
@@ -107,7 +107,7 @@ export function ProductPanel({ className = "" }: { className?: string }) {
           <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-4">
             <div className="overflow-hidden rounded-xl border border-foreground/10">
               <div className="relative flex h-[72px] items-center justify-center bg-gradient-to-br from-[#c9d488] via-[#8fa64f] to-[#3f4a25]">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow">
+                <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-white/90 shadow">
                   <Play className="h-4 w-4 translate-x-px text-foreground" fill="currentColor" aria-hidden="true" />
                 </span>
                 <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 font-mono text-[10px] text-white">
@@ -147,10 +147,10 @@ export function ProductPanel({ className = "" }: { className?: string }) {
               <p className="font-heading text-[13px] font-semibold text-foreground">Sentiment across the video</p>
               <div className="flex items-center gap-4 text-[11px] text-foreground/55">
                 <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-brand" /> Positive
+                  <span className="h-2 w-2 rounded-sm bg-brand" /> Positive
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-[#c07a4e]" /> Negative
+                  <span className="h-2 w-2 rounded-sm bg-[#c07a4e]" /> Negative
                 </span>
               </div>
             </div>
@@ -204,8 +204,8 @@ export function ProductPanel({ className = "" }: { className?: string }) {
                       <span className="text-[12px] text-foreground/75">{t.label}</span>
                       <span className="font-mono text-[11px] text-brand">{t.count}</span>
                     </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-foreground/8">
-                      <div className="h-full rounded-full bg-brand/70" style={{ width: `${t.pct}%` }} />
+                    <div className="h-1.5 overflow-hidden rounded-sm bg-foreground/8">
+                      <div className="h-full rounded-sm bg-brand/70" style={{ width: `${t.pct}%` }} />
                     </div>
                   </div>
                 ))}
@@ -241,7 +241,7 @@ export function ProductPanel({ className = "" }: { className?: string }) {
                       <HelpCircle className="h-3 w-3 shrink-0 text-brand" aria-hidden="true" />
                       {item.q}
                     </span>
-                    <span className="rounded-full bg-brand/10 px-1.5 py-0.5 font-mono text-[10px] text-brand">
+                    <span className="rounded-sm bg-brand/10 px-1.5 py-0.5 font-mono text-[10px] text-brand">
                       ×{item.n}
                     </span>
                   </div>
@@ -261,10 +261,10 @@ export function ProductPanel({ className = "" }: { className?: string }) {
               </p>
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              <span className="flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-[11px] font-medium text-primary-foreground">
+              <span className="flex items-center gap-1.5 rounded-sm bg-primary px-3 py-1.5 text-[11px] font-medium text-primary-foreground">
                 <Download className="h-3 w-3" aria-hidden="true" /> Export PDF
               </span>
-              <span className="rounded-full border border-foreground/15 bg-background px-3 py-1.5 text-[11px] font-medium text-foreground/70">
+              <span className="rounded-sm border border-foreground/15 bg-background px-3 py-1.5 text-[11px] font-medium text-foreground/70">
                 Copy summary
               </span>
             </div>

@@ -35,7 +35,7 @@ export function Nav() {
           backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
         }}
         transition={reduce ? { duration: 0 } : { duration: 0.55, ease: EASE }}
-        className="flex w-full items-center justify-between rounded-full border"
+        className="flex w-full items-center justify-between rounded-md border"
       >
         <Link
           href="/"
@@ -49,7 +49,7 @@ export function Nav() {
           <Button
             variant="ghost"
             size="lg"
-            className="hidden md:inline-flex rounded-full px-5 text-base text-foreground/75"
+            className="hidden md:inline-flex rounded-md px-4 font-mono text-[13px] uppercase tracking-[0.12em] text-foreground/75"
             render={<Link href="/pricing" />}
           >
             Pricing
@@ -57,7 +57,7 @@ export function Nav() {
           <Button
             variant="ghost"
             size="lg"
-            className="hidden lg:inline-flex rounded-full px-5 text-base text-foreground/75"
+            className="hidden lg:inline-flex rounded-md px-4 font-mono text-[13px] uppercase tracking-[0.12em] text-foreground/75"
             render={<Link href="/#waitlist" />}
           >
             Request a demo
@@ -65,14 +65,14 @@ export function Nav() {
           <Button
             variant="ghost"
             size="lg"
-            className="hidden sm:inline-flex rounded-full px-5 text-base text-foreground/75"
+            className="hidden sm:inline-flex rounded-md px-4 font-mono text-[13px] uppercase tracking-[0.12em] text-foreground/75"
             render={<Link href="/login" />}
           >
             Log in
           </Button>
           <Button
             size="lg"
-            className="rounded-full px-6 text-base shadow-md shadow-foreground/15"
+            className="rounded-md px-5 font-mono text-[13px] uppercase tracking-[0.12em] shadow-md shadow-foreground/15"
             render={<Link href="/#waitlist" />}
           >
             Join the waitlist

@@ -103,8 +103,8 @@ export default function PricingPage() {
             transition={{ duration: 0.7, ease: EASE }}
             className="mb-12 text-center"
           >
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-foreground/40">
-              Pricing
+            <p className="mb-4 flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/45">
+              <span aria-hidden="true">[ 03 ]</span> Pricing / Rate card
             </p>
             <h1 className="mb-6 font-display text-5xl sm:text-6xl md:text-7xl font-normal tracking-[-0.01em] text-foreground text-balance">
               Every comment. One simple plan.
@@ -121,14 +121,14 @@ export default function PricingPage() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
             className="mb-14 flex items-center justify-center"
           >
-            <div className="relative flex items-center gap-1 rounded-full border border-foreground/10 bg-card p-1 shadow-sm">
+            <div className="relative flex items-center gap-1 rounded-md border border-foreground/10 bg-card p-1 shadow-sm">
               {(["monthly", "annual"] as const).map((option) => (
                 <button
                   key={option}
                   type="button"
                   onClick={() => setBilling(option)}
                   className={cn(
-                    "relative rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200",
+                    "relative rounded-sm px-5 py-2 font-mono text-[13px] uppercase tracking-[0.1em] transition-colors duration-200",
                     billing === option ? "text-primary-foreground" : "text-foreground/60 hover:text-foreground",
                   )}
                 >
@@ -136,13 +136,13 @@ export default function PricingPage() {
                     <motion.span
                       layoutId="billing-pill"
                       transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 34 }}
-                      className="absolute inset-0 rounded-full bg-primary shadow-md shadow-foreground/15"
+                      className="absolute inset-0 rounded-sm bg-primary shadow-md shadow-foreground/15"
                     />
                   )}
                   <span className="relative capitalize">{option}</span>
                   {option === "annual" && (
                     <span className="relative ml-2 font-mono text-[10px] uppercase tracking-wider text-brand-foreground/90 max-sm:hidden">
-                      <Badge className="h-auto rounded-full bg-brand/90 px-2 py-0.5 text-[10px]">2 months free</Badge>
+                      <Badge className="h-auto rounded-sm bg-brand/90 px-2 py-0.5 text-[10px]">2 months free</Badge>
                     </span>
                   )}
                 </button>
@@ -164,14 +164,14 @@ export default function PricingPage() {
                 whileHover={reduce ? undefined : { y: -6 }}
                 transition={{ duration: 0.3, ease: EASE }}
                 className={cn(
-                  "relative flex flex-col rounded-3xl border bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-foreground/10",
+                  "relative flex flex-col rounded-lg border bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-foreground/10",
                   tier.popular
                     ? "border-brand/40 shadow-xl shadow-brand/10 ring-1 ring-brand/25 lg:-my-3 lg:py-11"
                     : "border-foreground/8",
                 )}
               >
                 {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 h-auto -translate-x-1/2 rounded-full bg-brand px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-brand-foreground shadow-md">
+                  <Badge className="absolute -top-3 left-1/2 h-auto -translate-x-1/2 rounded-sm bg-brand px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-brand-foreground shadow-md">
                     Most popular
                   </Badge>
                 )}
@@ -187,7 +187,7 @@ export default function PricingPage() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={reduce ? undefined : { y: -18, opacity: 0 }}
                       transition={{ duration: 0.35, ease: EASE }}
-                      className="font-display text-5xl tracking-tight text-foreground"
+                      className="font-mono text-5xl tracking-tight text-foreground"
                     >
                       ${tier.price[billing]}
                     </motion.span>
@@ -205,7 +205,7 @@ export default function PricingPage() {
                     <li key={f} className="flex items-start gap-3 text-sm text-foreground/75">
                       <span
                         className={cn(
-                          "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
+                          "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm",
                           tier.popular ? "bg-brand/15 text-brand" : "bg-foreground/8 text-foreground/60",
                         )}
                       >
@@ -221,7 +221,7 @@ export default function PricingPage() {
                     size="lg"
                     variant={tier.popular ? "default" : "outline"}
                     className={cn(
-                      "group h-12 w-full rounded-full text-base",
+                      "group h-12 w-full rounded-md font-mono text-sm uppercase tracking-[0.12em]",
                       tier.popular
                         ? "shadow-lg shadow-foreground/20"
                         : "border-foreground/15 bg-background/60",

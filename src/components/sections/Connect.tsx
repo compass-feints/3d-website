@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
+import { SectionTag } from "@/components/SectionTag"
 import { Button } from "@/components/ui/button"
 
 // Staggered tile grid of the platforms Wedgio reads, shadcn-blocks style:
@@ -58,6 +59,10 @@ export function Connect() {
         }}
       />
 
+      <div className="relative mx-auto max-w-6xl">
+        <SectionTag index="01" label="Integrations" />
+      </div>
+
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_1.4fr]">
         {/* Left — copy + CTA */}
         <div className="text-center lg:text-left">
@@ -71,7 +76,7 @@ export function Connect() {
           </p>
           <Button
             size="lg"
-            className="group h-13 rounded-full px-7 text-base shadow-lg shadow-foreground/20"
+            className="group h-13 rounded-md px-7 font-mono text-sm uppercase tracking-[0.12em] shadow-lg shadow-foreground/20"
             render={<a href="#waitlist" />}
           >
             Join the waitlist
@@ -102,7 +107,7 @@ export function Connect() {
                   key={p.name}
                   variants={tile}
                   title={p.name}
-                  className="flex h-16 w-16 items-center justify-center rounded-2xl border border-foreground/8 bg-card shadow-md shadow-foreground/5 transition-transform duration-200 hover:-translate-y-1 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+                  className="flex h-16 w-16 items-center justify-center rounded-md border border-foreground/8 bg-card shadow-md shadow-foreground/5 transition-transform duration-200 hover:-translate-y-1 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
